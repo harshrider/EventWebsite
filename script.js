@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isMobile = false;
 
     function checkMobile() {
-        const newIsMobile = window.innerWidth <= 768;
+        const newIsMobile = window.innerWidth <= 992;
         if (newIsMobile !== isMobile) {
             isMobile = newIsMobile;
             setupCarousels();
