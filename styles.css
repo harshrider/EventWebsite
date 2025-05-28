@@ -511,6 +511,18 @@ footer {
     color: #8b6914;
 }
 
+.team-carousel-container,
+.services-carousel-container {
+    position: relative;
+}
+
+.team-carousel-container .carousel-btn,
+.services-carousel-container .carousel-btn,
+.team-carousel-container .carousel-dots,
+.services-carousel-container .carousel-dots {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -579,5 +591,85 @@ footer {
         width: 90%;
         max-width: 500px;
         height: 300px;
+    }
+
+    .mobile-carousel {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mobile-carousel .team-grid,
+    .mobile-carousel .services-grid {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: 400%;
+    }
+
+    .mobile-carousel .team-member,
+    .mobile-carousel .service-card {
+        width: 25%;
+        flex-shrink: 0;
+        padding: 0 1rem;
+    }
+
+    .mobile-carousel .carousel-btn {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(224, 215, 188, 0.9);
+        color: white;
+        border: none;
+        padding: 0.8rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .mobile-carousel .carousel-btn:hover {
+        background: rgba(139, 105, 20, 1);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .mobile-carousel .carousel-btn.prev {
+        left: 1rem;
+    }
+
+    .mobile-carousel .carousel-btn.next {
+        right: 1rem;
+    }
+
+    .mobile-carousel .carousel-dots {
+        display: flex;
+        position: absolute;
+        bottom: -3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 0.5rem;
+        z-index: 10;
+    }
+
+    .mobile-carousel .carousel-dots .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(200, 184, 136, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-carousel .carousel-dots .dot.active {
+        background: #c8b888;
+        transform: scale(1.2);
+    }
+
+    .mobile-carousel .carousel-dots .dot:hover {
+        background: rgba(139, 105, 20, 0.8);
+    }
+
+    .subsection {
+        margin-bottom: 6rem;
     }
 }
