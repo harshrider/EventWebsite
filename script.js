@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
+    const dots = document.querySelectorAll('.carousel-dots .dot');
     const totalSlides = slides.length;
 
     let teamCurrentIndex = 0;
@@ -9,8 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let isMobile = false;
 
     function checkMobile() {
-        isMobile = window.innerWidth <= 768;
-        setupCarousels();
+        const newIsMobile = window.innerWidth <= 768;
+        if (newIsMobile !== isMobile) {
+            isMobile = newIsMobile;
+            setupCarousels();
+        }
     }
 
     function setupCarousels() {
@@ -19,12 +22,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const teamGrid = document.querySelector('.team-grid');
         const servicesGrid = document.querySelector('.services-grid');
         
+        if (!teamContainer || !servicesContainer || !teamGrid || !servicesGrid) return;
+        
         if (isMobile) {
             teamContainer.classList.add('mobile-carousel');
             servicesContainer.classList.add('mobile-carousel');
             
-            setupTeamCarousel();
-            setupServicesCarousel();
+            teamCurrentIndex = 0;
+            servicesCurrentIndex = 0;
+            
+            updateTeamCarousel();
+            updateServicesCarousel();
         } else {
             teamContainer.classList.remove('mobile-carousel');
             servicesContainer.classList.remove('mobile-carousel');
@@ -34,44 +42,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function setupTeamCarousel() {
-        const teamMembers = document.querySelectorAll('.team-member');
-        const teamDots = document.querySelectorAll('.team-dots .dot');
-        
-        teamMembers.forEach((member, index) => {
-            member.classList.toggle('active', index === teamCurrentIndex);
-        });
-        
-        teamDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === teamCurrentIndex);
-        });
-        
-        updateTeamCarousel();
-    }
-
-    function setupServicesCarousel() {
-        const serviceCards = document.querySelectorAll('.service-card');
-        const servicesDots = document.querySelectorAll('.services-dots .dot');
-        
-        serviceCards.forEach((card, index) => {
-            card.classList.toggle('active', index === servicesCurrentIndex);
-        });
-        
-        servicesDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === servicesCurrentIndex);
-        });
-        
-        updateServicesCarousel();
-    }
-
     function updateTeamCarousel() {
         if (!isMobile) return;
         
         const teamGrid = document.querySelector('.team-grid');
-        const translateX = -teamCurrentIndex * 100;
+        const teamDots = document.querySelectorAll('.team-dots .dot');
+        
+        if (!teamGrid || !teamDots.length) return;
+        
+        const translateX = -teamCurrentIndex * 25;
         teamGrid.style.transform = `translateX(${translateX}%)`;
         
-        const teamDots = document.querySelectorAll('.team-dots .dot');
         teamDots.forEach((dot, index) => {
             dot.classList.toggle('active', index === teamCurrentIndex);
         });
@@ -81,16 +62,21 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isMobile) return;
         
         const servicesGrid = document.querySelector('.services-grid');
-        const translateX = -servicesCurrentIndex * 100;
+        const servicesDots = document.querySelectorAll('.services-dots .dot');
+        
+        if (!servicesGrid || !servicesDots.length) return;
+        
+        const translateX = -servicesCurrentIndex * 25;
         servicesGrid.style.transform = `translateX(${translateX}%)`;
         
-        const servicesDots = document.querySelectorAll('.services-dots .dot');
         servicesDots.forEach((dot, index) => {
             dot.classList.toggle('active', index === servicesCurrentIndex);
         });
     }
 
     function showSlide(index) {
+        if (!slides.length || !dots.length) return;
+        
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
         
@@ -158,6 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function autoSlide() {
+        if (totalSlides === 0) return;
+        
         currentSlideIndex++;
         if (currentSlideIndex >= totalSlides) {
             currentSlideIndex = 0;
@@ -168,10 +156,15 @@ document.addEventListener('DOMContentLoaded', function() {
     window.changeSlide = changeSlide;
     window.currentSlide = currentSlide;
 
-    document.querySelector('.team-prev').addEventListener('click', () => changeTeamSlide(-1));
-    document.querySelector('.team-next').addEventListener('click', () => changeTeamSlide(1));
-    document.querySelector('.services-prev').addEventListener('click', () => changeServicesSlide(-1));
-    document.querySelector('.services-next').addEventListener('click', () => changeServicesSlide(1));
+    const teamPrev = document.querySelector('.team-prev');
+    const teamNext = document.querySelector('.team-next');
+    const servicesPrev = document.querySelector('.services-prev');
+    const servicesNext = document.querySelector('.services-next');
+
+    if (teamPrev) teamPrev.addEventListener('click', () => changeTeamSlide(-1));
+    if (teamNext) teamNext.addEventListener('click', () => changeTeamSlide(1));
+    if (servicesPrev) servicesPrev.addEventListener('click', () => changeServicesSlide(-1));
+    if (servicesNext) servicesNext.addEventListener('click', () => changeServicesSlide(1));
 
     document.querySelectorAll('.team-dots .dot').forEach((dot, index) => {
         dot.addEventListener('click', () => goToTeamSlide(index));

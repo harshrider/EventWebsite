@@ -596,13 +596,24 @@ footer {
     .mobile-carousel {
         position: relative;
         overflow: hidden;
+        margin-bottom: 4rem;
     }
 
-    .mobile-carousel .team-grid,
+    .mobile-carousel .team-grid {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: 400%;
+        grid-template-columns: none;
+        gap: 0;
+    }
+
     .mobile-carousel .services-grid {
         display: flex;
         transition: transform 0.5s ease;
         width: 400%;
+        grid-template-columns: none;
+        gap: 0;
+        margin-bottom: 0;
     }
 
     .mobile-carousel .team-member,
@@ -610,6 +621,7 @@ footer {
         width: 25%;
         flex-shrink: 0;
         padding: 0 1rem;
+        box-sizing: border-box;
     }
 
     .mobile-carousel .carousel-btn {
