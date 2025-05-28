@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.currentSlide = currentSlide;
 
     if (totalSlides > 0) {
-        setInterval(autoSlide, 5000);
+        setInterval(autoSlide, 10000);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
