@@ -556,17 +556,55 @@ footer {
     display: none;
 }
 
-@media (max-width: 992px) and (min-width: 769px) {
-    .contact-methods {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-    
-    .contact-method:last-child {
-        grid-column: 1 / -1;
-        max-width: 400px;
-        margin: 0 auto;
-    }
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.contact-method {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.contact-method:hover {
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(200, 184, 136, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    color: #8b6914;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #8b6914;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #c8b888;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
