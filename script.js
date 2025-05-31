@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let teamCurrentIndex = 0;
     let servicesCurrentIndex = 0;
+    let workCurrentIndex = 0;
     let isMobile = false;
 
     function checkMobile() {
@@ -131,6 +132,38 @@ document.addEventListener('DOMContentLoaded', function() {
         updateServicesCarousel();
     }
 
+    function changeWorkSlide(direction) {
+        const workSlides = document.querySelectorAll('.work-slide');
+        const workDots = document.querySelectorAll('.work-dots .dot');
+        
+        if (!workSlides.length) return;
+        
+        workCurrentIndex += direction;
+        
+        if (workCurrentIndex >= workSlides.length) {
+            workCurrentIndex = 0;
+        } else if (workCurrentIndex < 0) {
+            workCurrentIndex = workSlides.length - 1;
+        }
+        
+        updateWorkCarousel();
+    }
+
+    function updateWorkCarousel() {
+        const workSlides = document.querySelectorAll('.work-slide');
+        const workDots = document.querySelectorAll('.work-dots .dot');
+        
+        if (!workSlides.length || !workDots.length) return;
+        
+        workSlides.forEach(slide => slide.classList.remove('active'));
+        workDots.forEach(dot => dot.classList.remove('active'));
+        
+        if (workSlides[workCurrentIndex] && workDots[workCurrentIndex]) {
+            workSlides[workCurrentIndex].classList.add('active');
+            workDots[workCurrentIndex].classList.add('active');
+        }
+    }
+
     function goToTeamSlide(index) {
         if (!isMobile) return;
         teamCurrentIndex = index;
@@ -143,6 +176,11 @@ document.addEventListener('DOMContentLoaded', function() {
         updateServicesCarousel();
     }
 
+    function goToWorkSlide(index) {
+        workCurrentIndex = index;
+        updateWorkCarousel();
+    }
+
     function autoSlide() {
         if (totalSlides === 0) return;
         
@@ -153,6 +191,17 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(currentSlideIndex);
     }
 
+    function autoWorkSlide() {
+        const workSlides = document.querySelectorAll('.work-slide');
+        if (workSlides.length === 0) return;
+        
+        workCurrentIndex++;
+        if (workCurrentIndex >= workSlides.length) {
+            workCurrentIndex = 0;
+        }
+        updateWorkCarousel();
+    }
+
     window.changeSlide = changeSlide;
     window.currentSlide = currentSlide;
 
@@ -160,11 +209,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const teamNext = document.querySelector('.team-next');
     const servicesPrev = document.querySelector('.services-prev');
     const servicesNext = document.querySelector('.services-next');
+    const workPrev = document.querySelector('.work-prev');
+    const workNext = document.querySelector('.work-next');
 
     if (teamPrev) teamPrev.addEventListener('click', () => changeTeamSlide(-1));
     if (teamNext) teamNext.addEventListener('click', () => changeTeamSlide(1));
     if (servicesPrev) servicesPrev.addEventListener('click', () => changeServicesSlide(-1));
     if (servicesNext) servicesNext.addEventListener('click', () => changeServicesSlide(1));
+    if (workPrev) workPrev.addEventListener('click', () => changeWorkSlide(-1));
+    if (workNext) workNext.addEventListener('click', () => changeWorkSlide(1));
 
     document.querySelectorAll('.team-dots .dot').forEach((dot, index) => {
         dot.addEventListener('click', () => goToTeamSlide(index));
@@ -174,8 +227,17 @@ document.addEventListener('DOMContentLoaded', function() {
         dot.addEventListener('click', () => goToServicesSlide(index));
     });
 
+    document.querySelectorAll('.work-dots .dot').forEach((dot, index) => {
+        dot.addEventListener('click', () => goToWorkSlide(index));
+    });
+
     if (totalSlides > 0) {
         setInterval(autoSlide, 10000);
+    }
+
+    const workSlides = document.querySelectorAll('.work-slide');
+    if (workSlides.length > 0) {
+        setInterval(autoWorkSlide, 8000);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -191,6 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Initialize mobile detection and carousels
     checkMobile();
     window.addEventListener('resize', checkMobile);
 });
