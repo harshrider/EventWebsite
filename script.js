@@ -9,6 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     let workCurrentIndex = 0;
     let isMobile = false;
 
+    // Header scroll effect (new enhancement)
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.style.padding = '0.5rem 0';
+            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+        } else {
+            header.style.padding = '1rem 0';
+            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        }
+    });
+
     function checkMobile() {
         const newIsMobile = window.innerWidth <= 992;
         if (newIsMobile !== isMobile) {
@@ -252,6 +264,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // NEW: Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // NEW: Apply initial styles and observe elements for animation
+    const animateOnScroll = document.querySelectorAll('.service-card, .team-member, .work-text-content, .contact-method, .destination');
+    animateOnScroll.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+
+    // NEW: Subtle parallax effect for hero section
+    const heroContent = document.querySelector('.carousel-container');
+    if (heroContent) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxSpeed = 0.3; // Reduced for subtlety
+            if (scrolled < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+            }
+        });
+    }
 
     // Initialize mobile detection and carousels
     checkMobile();

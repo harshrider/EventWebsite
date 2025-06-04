@@ -7,7 +7,7 @@
 body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
-    color: #c8b888;
+    color: #8b6914;
     background-color: #fefefe;
 }
 
@@ -19,6 +19,11 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 nav {
@@ -35,6 +40,13 @@ nav {
     font-weight: bold;
     color: #8b6914;
     text-decoration: none;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .nav-links {
@@ -45,13 +57,31 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: #c8b888;
+    color: #8b6914;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #8b6914;
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #8b6914;
+    color: #6b5010;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .carousel-container {
@@ -99,6 +129,13 @@ nav {
     padding: 2rem;
     border-radius: 15px;
     backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.carousel-content:hover {
+    transform: translate(-50%, -50%) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 .carousel-content h1 {
@@ -125,11 +162,13 @@ nav {
     border-radius: 50%;
     transition: all 0.3s ease;
     z-index: 3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .carousel-btn:hover {
     background: rgba(139, 105, 20, 1);
     transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 .carousel-btn.prev {
@@ -157,15 +196,18 @@ nav {
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .dot.active {
     background: #c8b888;
     transform: scale(1.2);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
 
 .dot:hover {
     background: rgba(139, 105, 20, 0.8);
+    transform: scale(1.1);
 }
 
 .section {
@@ -179,11 +221,17 @@ nav {
     text-align: center;
     margin-bottom: 2rem;
     color: #8b6914;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .section h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
+    color: #8b6914;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.section p {
     color: #8b6914;
 }
 
@@ -215,6 +263,12 @@ nav {
     border: 2px dashed #ddd;
     border-radius: 10px;
     overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.image-placeholder:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .red-block {
@@ -247,6 +301,7 @@ nav {
     background: rgba(255,255,255,0.9);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .about-content {
@@ -269,6 +324,12 @@ nav {
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.mission-vision:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .mission-vision .red-block {
@@ -288,11 +349,12 @@ nav {
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .service-card .red-block {
@@ -314,6 +376,13 @@ nav {
     padding: 0.3rem 0;
     position: relative;
     padding-left: 1.5rem;
+    color: #8b6914;
+    transition: all 0.3s ease;
+}
+
+.service-card li:hover {
+    transform: translateX(5px);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .service-card li::before {
@@ -327,6 +396,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    transition: transform 0.5s ease;
 }
 
 .team-member {
@@ -335,11 +405,12 @@ nav {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .team-member:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .team-member .red-block {
@@ -353,10 +424,14 @@ nav {
 }
 
 .team-member .role {
-    color: #c8b888;
+    color: #8b6914;
     font-style: italic;
     margin-bottom: 1rem;
     font-weight: 600;
+}
+
+.team-member p {
+    color: #8b6914;
 }
 
 .destinations {
@@ -366,6 +441,12 @@ nav {
     margin: 2rem 0;
     text-align: center;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.destinations:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 .destinations-grid {
@@ -381,11 +462,14 @@ nav {
     border-radius: 10px;
     font-weight: 600;
     color: #8b6914;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .destination:hover {
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    background: rgba(255,255,255,0.9);
 }
 
 .contact-intro {
@@ -408,11 +492,12 @@ nav {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .contact-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .contact-card i {
@@ -427,12 +512,14 @@ nav {
 }
 
 .contact-card a {
-    color: #c8b888;
+    color: #8b6914;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .contact-card a:hover {
-    color: #8b6914;
+    color: #6b5010;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .work-section {
@@ -462,6 +549,7 @@ footer {
     color: white;
     padding: 3rem 2rem 1rem;
     margin-top: 4rem;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
 }
 
 .footer-content {
@@ -487,10 +575,12 @@ footer {
 .footer-section a {
     color: white;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .footer-section a:hover {
     color: #c8b888;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .footer-section i {
@@ -517,10 +607,13 @@ footer {
     box-shadow: 2px 2px 3px #999;
     text-decoration: none;
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .float:hover {
     background-color: #20b358;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
 }
 
 .my-float {
@@ -535,11 +628,13 @@ footer {
     color: white;
     font-size: 1.5rem;
     margin: 0 1rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .social-links a:hover {
     color: #8b6914;
+    transform: translateY(-3px);
+    text-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
 
 .team-carousel-container,
@@ -570,11 +665,20 @@ footer {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .contact-method:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.contact-method h3 {
+    color: #8b6914;
+}
+
+.contact-method p {
+    color: #8b6914;
 }
 
 .contact-icon {
@@ -588,6 +692,13 @@ footer {
     margin: 0 auto 1rem;
     font-size: 2rem;
     color: #8b6914;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.contact-method:hover .contact-icon {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .contact-btn {
@@ -599,11 +710,13 @@ footer {
     border-radius: 8px;
     margin-top: 1rem;
     transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(139, 105, 20, 0.3);
 }
 
 .contact-btn:hover {
     background: #c8b888;
     transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(139, 105, 20, 0.4);
 }
 
 /* Work Section Carousel */
@@ -662,6 +775,12 @@ footer {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.work-text-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .work-text-content h3 {
@@ -672,14 +791,14 @@ footer {
 
 .work-text-content h4 {
     font-size: 1.5rem;
-    color: #c8b888;
+    color: #8b6914;
     margin-bottom: 1.5rem;
     font-style: italic;
 }
 
 .work-text-content p {
     font-size: 1.1rem;
-    color: #666;
+    color: #8b6914;
     margin-bottom: 1rem;
     line-height: 1.8;
 }
@@ -689,6 +808,13 @@ footer {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.work-image-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .work-color-box {
@@ -902,11 +1028,13 @@ footer {
         border-radius: 50%;
         transition: all 0.3s ease;
         z-index: 10;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
 
     .mobile-carousel .carousel-btn:hover {
         background: rgba(139, 105, 20, 1);
         transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
     .mobile-carousel .carousel-btn.prev {
@@ -934,11 +1062,13 @@ footer {
         background: rgba(200, 184, 136, 0.5);
         cursor: pointer;
         transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .mobile-carousel .carousel-dots .dot.active {
         background: #c8b888;
         transform: scale(1.2);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
 
     .mobile-carousel .carousel-dots .dot:hover {
