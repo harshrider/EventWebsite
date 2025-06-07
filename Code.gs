@@ -60,20 +60,3 @@ function formatDate(date) {
   return date.toString();
 }
 
-function addPost(title, excerpt, content, category, author, image, readTime) {
-  const sheet = SpreadsheetApp.getActiveSheet();
-  const date = new Date().toISOString().split('T')[0];
-  
-  sheet.appendRow([
-    title,
-    excerpt,
-    content,
-    category || 'General',
-    date,
-    author || '23 Events Team',
-    image || '',
-    readTime || '5 min read'
-  ]);
-  
-  return { success: true, message: 'Post added successfully' };
-}

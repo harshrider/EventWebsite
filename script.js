@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let servicesCurrentIndex = 0;
     let workCurrentIndex = 0;
     let isMobile = false;
+    initMobileNav();
 
     // Header scroll effect (new enhancement)
     const header = document.querySelector('header');
