@@ -7,7 +7,7 @@
 body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
-    color: #c8b888;
+    color: #9b8653;
     background-color: #fefefe;
 }
 
@@ -57,7 +57,7 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: #c8b888;
+    color: #9b8653;
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
@@ -200,7 +200,7 @@ nav {
 }
 
 .dot.active {
-    background: #c8b888;
+    background: #9b8653;
     transform: scale(1.2);
     box-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
@@ -229,6 +229,10 @@ nav {
     margin-bottom: 1rem;
     color: #8b6914;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.section p {
+    color: #9b8653;
 }
 
 .about-section {
@@ -373,6 +377,7 @@ nav {
     position: relative;
     padding-left: 1.5rem;
     transition: all 0.3s ease;
+    color: #9b8653;
 }
 
 .service-card li:hover {
@@ -384,7 +389,7 @@ nav {
     content: "✦";
     position: absolute;
     left: 0;
-    color: #c8b888;
+    color: #9b8653;
 }
 
 .team-grid {
@@ -419,10 +424,14 @@ nav {
 }
 
 .team-member .role {
-    color: #c8b888;
+    color: #9b8653;
     font-style: italic;
     margin-bottom: 1rem;
     font-weight: 600;
+}
+
+.team-member p {
+    color: #9b8653;
 }
 
 .destinations {
@@ -503,7 +512,7 @@ nav {
 }
 
 .contact-card a {
-    color: #c8b888;
+    color: #9b8653;
     text-decoration: none;
     transition: all 0.3s ease;
 }
@@ -553,7 +562,7 @@ footer {
 }
 
 .footer-section h4 {
-    color: #c8b888;
+    color: #9b8653;
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
@@ -570,13 +579,13 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #c8b888;
+    color: #9b8653;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .footer-section i {
     margin-right: 0.5rem;
-    color: #c8b888;
+    color: #9b8653;
 }
 
 .footer-bottom {
@@ -664,10 +673,18 @@ footer {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
+.contact-method h3 {
+    color: #8b6914;
+}
+
+.contact-method p {
+    color: #9b8653;
+}
+
 .contact-icon {
     width: 80px;
     height: 80px;
-    background: rgba(200, 184, 136, 0.2);
+    background: rgba(155, 134, 83, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -697,9 +714,32 @@ footer {
 }
 
 .contact-btn:hover {
-    background: #c8b888;
+    background: #9b8653;
     transform: translateY(-2px);
     box-shadow: 0 5px 20px rgba(139, 105, 20, 0.4);
+}
+
+/* Portfolio Button */
+.portfolio-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #8b6914;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 105, 20, 0.3);
+}
+
+.portfolio-btn:hover {
+    background: #9b8653;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(139, 105, 20, 0.4);
+}
+
+.portfolio-btn i {
+    margin-right: 0.5rem;
 }
 
 /* Work Section Carousel */
@@ -774,7 +814,7 @@ footer {
 
 .work-text-content h4 {
     font-size: 1.5rem;
-    color: #c8b888;
+    color: #9b8653;
     margin-bottom: 1.5rem;
     font-style: italic;
 }
@@ -1042,14 +1082,14 @@ footer {
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: rgba(200, 184, 136, 0.5);
+        background: rgba(155, 134, 83, 0.5);
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .mobile-carousel .carousel-dots .dot.active {
-        background: #c8b888;
+        background: #9b8653;
         transform: scale(1.2);
         box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
