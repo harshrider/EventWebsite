@@ -900,6 +900,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+        main {
+        width: 100%;
+        overflow-x: hidden;
+    }
     .nav-links {
         display: none;
     }
@@ -930,7 +934,8 @@ footer {
     }
 
     .section {
-        padding: 2rem 1rem;
+        padding: 3rem 1rem;
+        overflow-x: hidden;
     }
 
     .red-block {
@@ -945,12 +950,24 @@ footer {
         height: 250px;
     }
 
-    .about-text .red-block {
-        height: 300px;
+    .about-content {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+        .about-text,
+    .mission-vision {
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
     }
 
+    .about-text .red-block,
     .mission-vision .red-block {
-        height: 280px;
+        width: 100%;
+        max-width: 100%;
+        height: 250px;
     }
 
     .contact-methods {
@@ -1101,4 +1118,144 @@ footer {
     .subsection {
         margin-bottom: 6rem;
     }
+        /* Fix image placeholder on mobile */
+    .image-placeholder {
+        width: 100%;
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+    
+    /* Ensure text is readable */
+    .section p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #666;
+    }
+    
+    .section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    /* Fix team and services grids */
+    .team-grid,
+    .services-grid {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .team-member,
+    .service-card {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    /* Fix carousel containers */
+    .team-carousel-container,
+    .services-carousel-container,
+    .work-carousel-container {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    /* Fix destinations grid */
+    .destinations-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .destination {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Fix footer */
+    footer {
+        padding: 2rem 1rem 1rem;
+    }
+    
+    .footer-content {
+        gap: 1.5rem;
+    }
+    
+    /* Fix WhatsApp button position */
+    .float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .my-float {
+        margin-top: 18px;
+        font-size: 1.2rem;
+    }
+    
+    /* Fix portfolio button */
+    .portfolio-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Ensure no horizontal scroll */
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Fix container widths */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+}
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    nav {
+        padding: 0 1rem;
+    }
+    
+    .carousel-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-content p {
+        font-size: 0.9rem;
+    }
+    
+    .section h2 {
+        font-size: 1.75rem;
+    }
+    
+    .work-text-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .work-text-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .work-text-content p {
+        font-size: 0.9rem;
+    }
+}
+
 }
