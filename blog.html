@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - 23 Events Thailand</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bcss.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">23 Events</a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#our-services">Our Services</a></li>
+                <li><a href="index.html#our-work">Our Work</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="index.html#contact-us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-hero">
+            <div class="blog-hero-content">
+                <h1>Our Blog</h1>
+                <p>Latest insights, tips, and stories from our events</p>
+            </div>
+        </section>
+
+        <section class="blog-filter-section">
+            <div class="container">
+                <div class="blog-categories">
+                    <button class="category-btn active" onclick="filterPosts('all')">All Posts</button>
+                    <button class="category-btn" onclick="filterPosts('Wedding')">Weddings</button>
+                    <button class="category-btn" onclick="filterPosts('Corporate')">Corporate</button>
+                    <button class="category-btn" onclick="filterPosts('Tips')">Tips & Guides</button>
+                    <button class="category-btn" onclick="filterPosts('Trends')">Trends</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-content-section">
+            <div class="container">
+			
+                <div class="blog-loading" id="blogLoading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading latest posts...</p>
+                </div>
+                
+                <div class="blog-error" id="blogError" style="display: none;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Unable to load blog posts. Please try again later.</p>
+                    <button onclick="loadBlogPosts()" class="retry-btn">Retry</button>
+                </div>
+                
+                <!-- Blog Posts Container -->
+                <div class="blog-grid" id="blogGrid" style="display: none;">
+                </div>
+                
+                <div class="blog-pagination" id="blogPagination" style="display: none;">
+                    <button class="pagination-btn" id="prevPage" onclick="changePage(-1)">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span class="page-info" id="pageInfo">Page 1 of 1</span>
+                    <button class="pagination-btn" id="nextPage" onclick="changePage(1)">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Blog Post Modal -->
+    <div class="blog-modal" id="blogModal">
+        <div class="blog-modal-content">
+            <button class="modal-close" onclick="closeBlogModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Full blog post content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/66868108787?text=Hello 23 Events! I am interested in your event planning services." target="_blank" class="float">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Get In Touch</h4>
+                <p>Curious, inspired, or just want to chat over tea or coffee? Connect with us; we're all ears, ready to turn your ideas into extraordinary moments!</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+66868108787">+66 (0) 86 810 8787</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@23events.com">info@23events.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> The Plant Exclusique, 778/109, 38 Pattanakarn Rd, Suan Luang, Bangkok 10250, Thailand</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/23eventsthailand/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/23eventsthailand" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@23EventsThailand" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p><a href="https://www.instagram.com/23eventsthailand/" target="_blank">@23eventsthailand</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 23Events. All rights reserved. | Your Vision, Our Innovation</p>
+        </div>
+    </footer>
+
+    <script src="bscript.js"></script>
+</body>
+</html>
