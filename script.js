@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
             header.style.padding = '0.5rem 0';
-            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
         } else {
+            header.classList.remove('scrolled');
             header.style.padding = '1rem 0';
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
         }
     });
 
@@ -389,9 +389,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroContent) {
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            const parallaxSpeed = 0.5;
             if (scrolled < window.innerHeight) {
-                heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+                heroContent.style.transform = 'none';
             }
         });
     }

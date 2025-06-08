@@ -903,8 +903,7 @@ footer {
     }
     
     .carousel-container {
-        height: 50vh;
-        min-height: 300px;
+        height: 100vh;
     }
     
     .carousel-content h1 {
