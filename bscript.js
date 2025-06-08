@@ -1,10 +1,5 @@
-// Blog Configuration
 const blogConfig = {
-    // Google Sheets API endpoint
-    // Replace With Real one later on
     apiUrl: 'https://script.google.com/macros/s/AKfycbwk1jNv6nqykDRcBpQ1ZL18gWzj3w_8RSp_VvodXqRort2Erp5gr0NaJvMfrJc0v1U/exec',
-    
-
     postsPerPage: 6,
     currentPage: 1,
     totalPosts: 0,
@@ -28,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Load blog posts from API
 async function loadBlogPosts() {
     const loadingEl = document.getElementById('blogLoading');
     const errorEl = document.getElementById('blogError');

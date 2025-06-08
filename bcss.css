@@ -1,12 +1,8 @@
-/* Blog Page Specific Styles */
-
-/* Active nav link */
 .nav-links a.active {
     color: #8b6914;
     font-weight: 600;
 }
 
-/* Blog Hero Section */
 .blog-hero {
     background: linear-gradient(135deg, #e8e1cd 0%, #e5ddc9 100%);
     padding: 8rem 2rem 4rem;
@@ -27,14 +23,12 @@
     color: #9b8653;
 }
 
-/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* Filter Section */
 .blog-filter-section {
     background: #fefefe;
     padding: 2rem 0;
@@ -68,14 +62,12 @@
     box-shadow: 0 5px 15px rgba(139, 105, 20, 0.3);
 }
 
-/* Blog Content Section */
 .blog-content-section {
     background: #fefefe;
     padding: 4rem 0;
     min-height: 600px;
 }
 
-/* Loading State */
 .blog-loading {
     text-align: center;
     padding: 3rem;
@@ -96,7 +88,6 @@
     100% { transform: rotate(360deg); }
 }
 
-/* Error State */
 .blog-error {
     text-align: center;
     padding: 3rem;
@@ -127,7 +118,6 @@
     box-shadow: 0 5px 20px rgba(139, 105, 20, 0.4);
 }
 
-/* Blog Grid */
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -135,7 +125,6 @@
     margin-bottom: 3rem;
 }
 
-/* Blog Card */
 .blog-card {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
@@ -247,7 +236,6 @@
     transform: translateX(5px);
 }
 
-/* Pagination */
 .blog-pagination {
     display: flex;
     justify-content: center;
@@ -288,7 +276,6 @@
     font-weight: 600;
 }
 
-/* Blog Modal */
 .blog-modal {
     display: none;
     position: fixed;
@@ -423,7 +410,6 @@
     color: #9b8653;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .blog-hero-content h1 {
         font-size: 2rem;
